@@ -1,0 +1,115 @@
+flowchart TD
+    %% Data Collection Subgraph
+    subgraph A["Data Collection"]
+        A1[Historical Exam Papers]
+        A2[Course Syllabi]
+        A3[University Patterns Database]
+        A4[Data Repository]
+    end
+    
+    %% Data Preprocessing Subgraph
+    subgraph B["Data Preprocessing"]
+        B1["Text Cleaning<br/>- Remove headers/footers<br/>- Standardize formats"]
+        B2["Labeling & Categorization<br/>- Manual topic tagging<br/>- NLP keyword extraction"]
+        B3["Difficulty Classification<br/>- Length analysis<br/>- Complexity scoring"]
+    end
+    
+    %% Model Design (Machine Learning Models) Subgraph
+    subgraph C["Model Design"]
+        C1["Feature Extraction<br/>- TF-IDF/Word Embeddings<br/>- Topic Modeling (LDA)"]
+        C2["Machine Learning Models<br/>- Topic Classification (SVM/Random Forest)<br/>- Sequence Models (LSTM/GRU)<br/>- Probability Engine"]
+    end
+    
+    %% API & Deployment Subgraph
+    subgraph X["API & Deployment"]
+        X1[REST API Gateway]
+        X2[Model Deployment Service]
+        X3[Monitoring & Logging]
+    end
+    
+    %% Prediction Engine Subgraph
+    subgraph D["Prediction Engine"]
+        D1[Question Probability Calculator]
+        D2[Topic Trend Analyzer]
+        D3[Personalized Recommendations]
+    end
+    
+    %% Visualization Subgraph
+    subgraph E["Visualization"]
+        E1[Topic Probability Charts]
+        E2[Historical Trend Graphs]
+        E3[Question Ranking Display]
+    end
+    
+    %% User Interface Subgraph
+    subgraph F["User Interface"]
+        F1["Web/Mobile App<br/>- Subject Input<br/>- Prediction Request"]
+        F2[Study Recommendations]
+        F3[Real-time Notifications]
+        F4[Feedback Mechanism]
+        F5[User Authentication]
+    end
+    
+    %% Data Flow Connections
+    %% Data Collection to Preprocessing
+    A1 --> B1
+    A2 --> B1
+    A3 --> B1
+    A4 --> B1
+
+    %% Preprocessing pipeline
+    B1 --> B2
+    B2 --> B3
+
+    %% Preprocessed data to Model Design
+    B3 --> C1
+
+    %% Model design flow
+    C1 --> C2
+
+    %% Model output exposed via API layer
+    C2 --> X1
+    X1 --> X2
+
+    %% API layer feeds Prediction Engine
+    X2 --> D1
+    X2 --> D2
+    X2 --> D3
+
+    %% Prediction results visualized for users
+    D1 --> E1
+    D2 --> E2
+    D3 --> E3
+
+    %% Visualization integrated with User Interface
+    E1 --> F1
+    E2 --> F1
+    E3 --> F1
+
+    %% User feedback & new data loop back into the system
+    F1 -->|User Feedback| X1
+    F1 -->|New Exam Data| A1
+
+    %% Additional UI components
+    F1 --> F2
+    F1 --> F3
+    F1 --> F4
+    F1 --> F5
+
+    %% Monitoring ensures API reliability
+    X3 --> X1
+
+%% =============================================================================
+%% Project: Exam Prediction System Architecture
+%% Description: This document outlines the system architecture for an exam
+%%              prediction and analysis platform. The system integrates historical 
+%%              exam papers, course syllabi, and university pattern databases with 
+%%              advanced machine learning models and real-time user feedback to deliver 
+%%              personalized study recommendations and data-driven insights.
+%%
+%% Author:      Binayak Bartaula
+%% Version:     1.0
+%% Date:        March 07, 2025
+%% License:     Apache License, Version 2.0
+%% Repository:  https://github.com/binayakbartaula11?tab=repositories
+%% =============================================================================
